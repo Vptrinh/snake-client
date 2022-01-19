@@ -15,12 +15,14 @@ const connect = function () {
     console.log('disconnected from server');
   });
 
-  conn.on("connect", () => {
+  conn.on('connect', () => {
     conn.write('Name: VIV');
     console.log("connected");
     // conn.write("Move: up");
   });
-
+  conn.on('error', () => {
+    console.log('Error happened.');
+  });
   // interpret incoming data as text
   conn.setEncoding("utf8");
 
